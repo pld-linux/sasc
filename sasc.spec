@@ -1,7 +1,8 @@
+# TODO: License, optflags
 %define		_sc_ver	0.5.9
 %define	_pre	pre1
 Summary:	Stand-alone SoftCAM
-Summary(pl):	Stand-alone SoftCAM
+Summary(pl):	Samodzielny SoftCAM
 Name:		sasc
 Version:	0.6
 Release:	0.%{_pre}.1
@@ -11,7 +12,6 @@ Source0:	http://www.oldskools.org/%{name}-%{version}.%{_pre}.tar.bz2
 # Source0-md5:	d8f1c71d644bd7acc40ee6c2491a17e4
 Source1:	http://207.44.152.197/vdr-sc-%{_sc_ver}.tar.gz
 # Source1-md5:	cbd648dd4b7e9f8d08d86fc75a6681b0
-#Patch0: %{name}-DESTDIR.patch
 Requires:	vdr-sc = %{_sc_ver}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -22,14 +22,14 @@ powerful softCam library in programs other than vdr.
 
 %description -l pl
 sasc pozwala na u¿ywanie wtyczki 'sc' przeznaczonej dla vdr jako
-niezale¿nej aplikacji. To daje mo¿liwosc ko¿ystania z biblioteki
-softCam w programach innych niz vdr.
+niezale¿nej aplikacji. To daje mo¿liwo¶æ korzystania z biblioteki
+softCam w programach innych ni¿ vdr.
 
 %package vdr-sc
 Summary:	SoftCAM plugin for VDR
 Summary(pl):	Wtyczka SoftCAM dla VDR
 Group:		Applications
-Provides:	vdr-sc
+Provides:	vdr-sc = %{_sc_ver}
 
 %description vdr-sc
 It's not legal to use this software in most countries of the world. SC
@@ -37,12 +37,12 @@ means softcam, which means a software CAM emulation.
 
 %description vdr-sc -l pl
 U¿ywanie tego oprogramowania jest nielegalne we wiêkszo¶ci krajów
-¶wiata. SC znaczy softcam, co oznacza programowa emulacje CAM.
+¶wiata. SC znaczy softcam, co oznacza programow± emulacjê CAM.
 
 %prep
 %setup -q -n %{name}-%{version}.%{_pre}
-cd PLUGINS/src/
-/bin/gzip -dc %{SOURCE1} | tar -xf -
+cd PLUGINS/src
+gzip -dc %{SOURCE1} | tar -xf -
 patch -p0 < ../../patches/sc-%{_sc_ver}-mecm.patch
 
 %build
@@ -50,8 +50,8 @@ patch -p0 < ../../patches/sc-%{_sc_ver}-mecm.patch
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_bindir}
-install -d $RPM_BUILD_ROOT%{_libdir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_libdir}}
+
 install %{name} $RPM_BUILD_ROOT%{_bindir}
 install PLUGINS/lib/lib*.so.* $RPM_BUILD_ROOT%{_libdir}
 
@@ -68,5 +68,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files vdr-sc
 %defattr(644,root,root,755)
-%doc PLUGINS/src/sc-%{_sc_ver}/HISTORY PLUGINS/src/sc-%{_sc_ver}/README
-%attr(755,root,root) %{_libdir}
+%doc PLUGINS/src/sc-%{_sc_ver}/{HISTORY,README}
+%attr(755,root,root) %{_libdir}/lib*.so.*
