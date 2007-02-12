@@ -2,7 +2,7 @@
 %define		_sc_ver	0.5.9
 %define	_pre	pre1
 Summary:	Stand-alone SoftCAM
-Summary(pl.UTF-8):   Samodzielny SoftCAM
+Summary(pl.UTF-8):	Samodzielny SoftCAM
 Name:		sasc
 Version:	0.6
 Release:	0.%{_pre}.1
@@ -27,7 +27,7 @@ softCam w programach innych niż vdr.
 
 %package vdr-sc
 Summary:	SoftCAM plugin for VDR
-Summary(pl.UTF-8):   Wtyczka SoftCAM dla VDR
+Summary(pl.UTF-8):	Wtyczka SoftCAM dla VDR
 Group:		Applications
 Provides:	vdr-sc = %{_sc_ver}
 
