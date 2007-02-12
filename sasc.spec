@@ -2,7 +2,7 @@
 %define		_sc_ver	0.5.9
 %define	_pre	pre1
 Summary:	Stand-alone SoftCAM
-Summary(pl):	Samodzielny SoftCAM
+Summary(pl.UTF-8):   Samodzielny SoftCAM
 Name:		sasc
 Version:	0.6
 Release:	0.%{_pre}.1
@@ -20,14 +20,14 @@ sasc is an application that allows using the vdr 'sc' plugin as a
 stand alone executable. This gives you the capability to use the
 powerful softCam library in programs other than vdr.
 
-%description -l pl
-sasc pozwala na u¿ywanie wtyczki 'sc' przeznaczonej dla vdr jako
-niezale¿nej aplikacji. To daje mo¿liwo¶æ korzystania z biblioteki
-softCam w programach innych ni¿ vdr.
+%description -l pl.UTF-8
+sasc pozwala na uÅ¼ywanie wtyczki 'sc' przeznaczonej dla vdr jako
+niezaleÅ¼nej aplikacji. To daje moÅ¼liwoÅ›Ä‡ korzystania z biblioteki
+softCam w programach innych niÅ¼ vdr.
 
 %package vdr-sc
 Summary:	SoftCAM plugin for VDR
-Summary(pl):	Wtyczka SoftCAM dla VDR
+Summary(pl.UTF-8):   Wtyczka SoftCAM dla VDR
 Group:		Applications
 Provides:	vdr-sc = %{_sc_ver}
 
@@ -35,9 +35,9 @@ Provides:	vdr-sc = %{_sc_ver}
 It's not legal to use this software in most countries of the world. SC
 means softcam, which means a software CAM emulation.
 
-%description vdr-sc -l pl
-U¿ywanie tego oprogramowania jest nielegalne we wiêkszo¶ci krajów
-¶wiata. SC znaczy softcam, co oznacza programow± emulacjê CAM.
+%description vdr-sc -l pl.UTF-8
+UÅ¼ywanie tego oprogramowania jest nielegalne we wiÄ™kszoÅ›ci krajÃ³w
+Å›wiata. SC znaczy softcam, co oznacza programowÄ… emulacjÄ™ CAM.
 
 %prep
 %setup -q -n %{name}-%{version}.%{_pre}
